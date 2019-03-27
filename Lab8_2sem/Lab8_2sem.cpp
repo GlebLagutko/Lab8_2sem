@@ -5,6 +5,7 @@
 #include "Lab8_2sem.h"
 
 #define MAX_LOADSTRING 100
+#define WS_OVERLAPPEDWINDOW (WS_SYSMENU|WS_MINIMIZEBOX)
 
 // Global Variables:
 HINSTANCE hInst;                                // current instance
@@ -24,6 +25,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 {
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
+
+	
 
     // TODO: Place code here.
 
@@ -80,6 +83,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.lpszClassName  = szWindowClass;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
+
     return RegisterClassExW(&wcex);
 }
 
@@ -98,7 +102,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    hInst = hInstance; // Store instance handle in our global variable
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+      0, 0, 800, 600, nullptr, nullptr, hInstance, nullptr);
 
    if (!hWnd)
    {
