@@ -5,7 +5,6 @@
 #include "Lab8_2sem.h"
 
 #define MAX_LOADSTRING 100
-#define WS_OVERLAPPEDWINDOW (WS_SYSMENU|WS_MINIMIZEBOX)
 
 // Global Variables:
 HINSTANCE hInst;                                // current instance
@@ -101,7 +100,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // Store instance handle in our global variable
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW & ~WS_MAXIMIZEBOX & ~WS_THICKFRAME,
       0, 0, 800, 600, nullptr, nullptr, hInstance, nullptr);
 
    if (!hWnd)
